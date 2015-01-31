@@ -17,8 +17,8 @@ public class FactsRecyclerAdapter extends RecyclerView.Adapter<FactsListRowHolde
     private Facts factItemList;
     private Context mContext;
 
-    public FactsRecyclerAdapter(Context context, Facts feedItemList) {
-        this.factItemList = feedItemList;
+    public FactsRecyclerAdapter(Context context, Facts factItemList) {
+        this.factItemList = factItemList;
         this.mContext = context;
     }
 
@@ -34,7 +34,7 @@ public class FactsRecyclerAdapter extends RecyclerView.Adapter<FactsListRowHolde
         Row factItem = factItemList.getRows().get(i);
 
         Picasso.with(mContext).load(factItem.getImageHref())
-                .resize(120, 120)
+                .resize(140, 120)
                 .error(R.drawable.placeholder)
                 .placeholder(R.drawable.placeholder)
                 .into(factListRowHolder.thumbnail);
