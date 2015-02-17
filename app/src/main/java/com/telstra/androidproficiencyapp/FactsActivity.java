@@ -37,18 +37,33 @@ public class FactsActivity extends Activity implements SwipeRefreshLayout.OnRefr
 
     }
 
+    /**
+     * Initializes the Async task and call server to load the facts data
+     * @param showDialog parameter to indicate wither to show the progress loading dialog or not
+     */
     private void loadFactsData(boolean showDialog) {
         AsyncHttpTask asyncHttpTask = new AsyncHttpTask(this, showDialog);
         asyncHttpTask.execute(Constants.FACTS_URL, false);
     }
 
+    /**
+     * Overrides the onRefresh() method for the
+     * SwipeRefreshLayout to reload the data from the server
+     */
     @Override
     public void onRefresh() {
+        // The showDialog parameter is set to false as the swipeRefreshLayout has its own loading indicator
         loadFactsData(false);
 
         contentLayout.setRefreshing(false);
     }
 
+    /**
+     * Called from the AsyncHttpTask class after finished loading data from server
+     * to populate the recycleView with the data
+     *
+     * @param factsResponse Facts object with the response data
+     */
     public void populateListData(final Facts factsResponse) {
 
         runOnUiThread(new Runnable() {

@@ -66,25 +66,25 @@ public class AsyncHttpTask extends AsyncTask<Object, Void, Integer> {
 
                 // Load the response string into a Facts Object
                 Gson gsonBuilder = new GsonBuilder().create();
+                // Coverts the json string to Facts object
                 factsResponse = gsonBuilder.fromJson(response.toString(), Facts.class);
 
                 result = 1; // Successful
             } else {
-                result = 0; //"Failed to fetch data!";
+                result = 0; // "Failed to fetch data!";
             }
 
-        } catch (Exception e) {
+        } catch (Exception e) { // "Failed to fetch data!";
             Log.d(Constants.TAG, e.getLocalizedMessage());
         }
-        return result; //"Failed to fetch data!";
+        return result;
     }
 
     @Override
     protected void onPostExecute(Integer result) {
-//            setProgressBarIndeterminateVisibility(false);
         mProgressDialog.dismiss();
-            /* Download complete. Lets update UI */
 
+        /* Download complete. Lets update UI */
         if (result == 1) {
             factsActivity.populateListData(factsResponse);
         } else {
