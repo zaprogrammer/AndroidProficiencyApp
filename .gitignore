@@ -24,3 +24,7 @@ proguard/
 
 # Log Files
 *.log
+/.idea/libraries
+/.idea/gradle.xml
+/.idea/r2murlcache.xml
+/.idea/workspace.xml
