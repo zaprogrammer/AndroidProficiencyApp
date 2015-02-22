@@ -34,3 +34,5 @@ proguard/
 # Log Files
 *.log
 >>>>>>> 644b260a2654a6331aeacca2da1e29749697ce9d
+/.idea/gradle.xml
+/.idea/gradle.xml
